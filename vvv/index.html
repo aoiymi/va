@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Monomakh&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="main">
+        <img class="hearts" src="images/SzK2M1Ud.jpg" alt="hearts">
+        <div class="mh">
+            <h1>будешь моей валентинкой??</h1>
+            <button onclick="playVideo()" id="yes" class="yes what">КОНЕЧНО</button>
+            <button id="no" onclick="playVideo()" class="no what">нет(ты говно)</button>
+        </div>
+        <video id="myVideo" src="images/Rick Roll (Different link + no ads).mp4" autoplay loop>
+            Ваш браузер не поддерживает видео.
+        </video>
+        <video id="myvideo" src="images/IMG_6561.MP4" autoplay loop>
+            Ваш браузер не поддерживает видео.
+        </video>
+    </main>
+
+    <script>
+        
+
+        function playVideo() {
+        const video = document.getElementById('myVideo');
+        video.style.display = 'block';  // Показываем видео
+
+        // Включаем Web Audio API для усиления звука
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const gainNode = audioContext.createGain();
+
+        // Привязываем видео к источнику звука
+        const source = audioContext.createMediaElementSource(video);
+
+        // Подключаем узел усилителя к аудио контексту
+        source.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+
+        // Устанавливаем усиление
+        gainNode.gain.setValueAtTime(1, audioContext.currentTime); // Усиливаем звук в 1.5 раза
+
+        video.play(); // Запускаем видео
+
+        // Разворачиваем видео на весь экран (можно использовать полноэкранный режим)
+        if (video.requestFullscreen) {
+            video.requestFullscreen();
+        } else if (video.mozRequestFullScreen) { // Для Firefox
+            video.mozRequestFullScreen();
+        } else if (video.webkitRequestFullscreen) { // Для Chrome, Safari и Opera
+            video.webkitRequestFullscreen();
+        } else if (video.msRequestFullscreen) { // Для IE/Edge
+            video.msRequestFullscreen();
+        }
+    }
+
+    function playVideo() {
+        const video = document.getElementById('myvideo');
+        video.style.display = 'block';  // Показываем видео
+
+        // Включаем Web Audio API для усиления звука
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const gainNode = audioContext.createGain();
+
+        // Привязываем видео к источнику звука
+        const source = audioContext.createMediaElementSource(video);
+
+        // Подключаем узел усилителя к аудио контексту
+        source.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+
+        // Устанавливаем усиление
+        gainNode.gain.setValueAtTime(1, audioContext.currentTime); // Усиливаем звук в 1.5 раза
+
+        video.play(); // Запускаем видео
+
+        // Разворачиваем видео на весь экран (можно использовать полноэкранный режим)
+        if (video.requestFullscreen) {
+            video.requestFullscreen();
+        } else if (video.mozRequestFullScreen) { // Для Firefox
+            video.mozRequestFullScreen();
+        } else if (video.webkitRequestFullscreen) { // Для Chrome, Safari и Opera
+            video.webkitRequestFullscreen();
+        } else if (video.msRequestFullscreen) { // Для IE/Edge
+            video.msRequestFullscreen();
+        }
+    }
+
+    </script>
+</body>
+</html>
